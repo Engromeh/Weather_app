@@ -5,7 +5,6 @@
 }
 .Hader_wehather{
     display: flex;
-    justify-content: right;
-    align-items: center;
-gap: 8rem;
+    justify-content: left;
+gap: 1rem;
 }

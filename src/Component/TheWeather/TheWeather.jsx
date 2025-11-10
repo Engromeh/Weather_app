@@ -9,7 +9,7 @@ const TheWeather = () => {
     const fetchWeather = async () => {
       try {
         const res = await axios.get(
-          "https://api.openweathermap.org/data/2.5/weather?lat=30.033&lon=131.233&appid=60e202e9ee964f0f95955b83553b8a79&units=metric"
+          "https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=60e202e9ee964f0f95955b83553b8a79&units=metric"
         );
         setWeatherData(res.data);
       } catch (error) {
@@ -26,16 +26,18 @@ const TheWeather = () => {
         component="section"
         sx={{
           p: 2,
-          border: "5px solid grey",
-          width: "auto",
-          height: "auto",
-          margin: "2rem auto",
+          padding: "18px",
+    border: "1px solid grey",
+    width: "300PX",
+    height: "auto",
+    margin: "2rem auto",
         }}
-        style={{ color: "#f4ff81" }}
+        style={{ color: "#ffffffff" }}
       >
         <div className="Hader_wehather">
-          <p>{new Date().toLocaleDateString()}</p>
           <h1>{weatherData ? weatherData.name : "Loading..."}</h1>
+                  <p  style={{marginTop:"3rem"}}>{new Date().toLocaleDateString()}</p>
+
         </div>
 
         <hr style={{ border: "1px solid white" }} />
@@ -50,7 +52,7 @@ const TheWeather = () => {
             }}
           >
             <div>
-              <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: "10rem", alignItems: "center" }}>
                 <h2>{weatherData.main.temp}°C</h2>
                 <img
                   src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
@@ -66,7 +68,6 @@ const TheWeather = () => {
             </div>
 
             <div>
-              <p>💨 {weatherData.wind.speed} m/s</p>
             </div>
           </div>
         )}
